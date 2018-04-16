@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { getAllNameDetails, getAllNames } from './github';
 import { cidrSubnet } from 'ip';
+import { storeInDB } from './db-storage';
 
 class App extends Component {
   constructor(props){
@@ -18,15 +19,32 @@ class App extends Component {
 
   componentDidMount() {
     // Fetch data from names.csv file
-    getAllNames().then(names => {
-      getAllNameDetails().then(details => {
-        this.setState({
-          allNamesFromCreditPage: names,
-          detailsFromCommitMessages: details,
-          nameMap: this.getNameMap(names, details)
-        });
-      });
+    // getAllNames().then(names => {
+    //   getAllNameDetails().then(details => {
+    //     this.setState({
+    //       allNamesFromCreditPage: names,
+    //       detailsFromCommitMessages: details,
+    //       nameMap: this.getNameMap(names, details)
+    //     });
+    //   });
+    // });
+    const names = ['ram', 'not ram'];
+    const details = [{
+      name: 'ram2',
+      mail: 'vaishnav.rd@gmail.com2',
+      citation: 'good bwoy2'
+    }, {
+      name: 'ram',
+      mail: 'vaishnav.rd@gmail.com',
+      citation: 'good bwoy'
+    }];
+    this.setState({
+      allNamesFromCreditPage: names,
+      detailsFromCommitMessages: details,
+      nameMap: this.getNameMap(names, details)
     });
+    storeInDB(names, details);
+    
   }
 
   getNameMap(names, details) {

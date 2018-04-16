@@ -1,4 +1,6 @@
- function getCommits(pageId) {
+import { storeInDB } from './db-storage';
+
+function getCommits(pageId) {
   return fetch("https://api.github.com/repos/mozilla/community-data/commits?page="+pageId);
 }
 
@@ -6,6 +8,7 @@
   return fetch('https://raw.githubusercontent.com/mozilla/community-data/master/credits/names.csv');
 }
 
+// get all names form the names.csv
 export function getAllNames() {
   return new Promise ((resolve, reject) => {
     getFileContent().then((csvContent) => {
@@ -64,14 +67,14 @@ function getCommitsAndProcess(totalPagesToRequest) {
   });
 }
 
+// get all name details from community-data commits
 export function getAllNameDetails() {
       return new Promise((resolve, reject) => {
         let numberOfPagesToRequest = 0;
       getCommits(0).then((data) => {
         data.headers.forEach((val, key) => {
+          // console.log(val);
           let indexOfFirstPage = val.indexOf("page=");
-
-        console.log(numberOfPagesToRequest);
           if(indexOfFirstPage > -1) {
             let indexOfSecondPage = val.substring(indexOfFirstPage+5, val.length).indexOf("page=");
             if(indexOfSecondPage > -1) {
