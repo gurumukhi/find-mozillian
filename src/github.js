@@ -1,4 +1,4 @@
-import { storeInDB } from './db-storage';
+// import { storeInDB } from './db-storage';
 
 function getCommits(pageId) {
   return fetch("https://api.github.com/repos/mozilla/community-data/commits?page="+pageId);
