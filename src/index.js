@@ -1,3 +1,3 @@
 const fm = require('./App');
 
-module.exports = fm.findMozillian;
+export default fm.findMozillian;

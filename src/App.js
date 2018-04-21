@@ -11,7 +11,11 @@ const { storeInDB, fetchFromDB } = db;
 const { getAllNameDetails, getAllNames } = gh;
 
 // local var
-const _data = {};
+const _data = {
+    allNamesFromCreditPage: [],
+        detailsFromCommitMessages: [],
+        nameMap: {}
+};
 
 function setLocalVariable(data) {
     _data = {
