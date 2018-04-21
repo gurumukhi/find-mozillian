@@ -1,4 +1,4 @@
-// import { storeInDB } from './db-storage';
+const fetch = require('node-fetch');
 
 function getCommits(pageId) {
   return fetch("https://api.github.com/repos/mozilla/community-data/commits?page="+pageId);
@@ -9,7 +9,7 @@ function getCommits(pageId) {
 }
 
 // get all names form the names.csv
-export function getAllNames() {
+function getAllNames() {
   return new Promise ((resolve, reject) => {
     getFileContent().then((csvContent) => {
       csvContent.blob().then(content => {
@@ -58,7 +58,7 @@ function getCommitsAndProcess(totalPagesToRequest) {
                   }
                 });
                 if(++processedCount === promiseList.length) {
-                  console.log('resolving with length ', objArr.length);
+                  // console.log('resolving with length ', objArr.length);
                   resolve([...objArr]);            
                 }
         });
@@ -68,12 +68,12 @@ function getCommitsAndProcess(totalPagesToRequest) {
 }
 
 // get all name details from community-data commits
-export function getAllNameDetails() {
+function getAllNameDetails() {
       return new Promise((resolve, reject) => {
         let numberOfPagesToRequest = 0;
       getCommits(0).then((data) => {
         data.headers.forEach((val, key) => {
-          // console.log(val);
+          console.log(val);
           let indexOfFirstPage = val.indexOf("page=");
           if(indexOfFirstPage > -1) {
             let indexOfSecondPage = val.substring(indexOfFirstPage+5, val.length).indexOf("page=");
@@ -90,3 +90,5 @@ export function getAllNameDetails() {
       });  
       });
 }
+
+module.exports = {getAllNames, getAllNameDetails};

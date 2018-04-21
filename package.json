@@ -1,17 +1,26 @@
 {
-  "name": "new-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "find-mozillian",
+  "version": "0.0.1-alpha",
+  "description": "Module to find if a person is mozillian or not.",
+  "main": "src/index.js",
   "dependencies": {
-    "fetch": "^1.1.0",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-scripts": "1.1.4"
+    "node-fetch": "^2.1.2"
   },
+  "devDependencies": {},
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gurumukhi/find-mozillian.git"
+  },
+  "keywords": [
+    "mozilla"
+  ],
+  "author": "Ram Dayal Vaishnav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gurumukhi/find-mozillian/issues"
+  },
+  "homepage": "https://github.com/gurumukhi/find-mozillian#readme"
 }

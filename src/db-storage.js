@@ -1,7 +1,8 @@
-
-export function storeInDB (names, details, dataDate) {
+function storeInDB (names, details, dataDate) {
+    return Promise.reject(new Error('test'));
+    /*
     return new Promise((resolve, reject) => {
-        console.log('storing data in db');
+        // console.log('storing data in db');
         // This works on all devices/browsers, and uses IndexedDBShim as a final fallback 
         var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
 
@@ -13,7 +14,7 @@ export function storeInDB (names, details, dataDate) {
             var db = open.result;
             var store = db.createObjectStore("MyObjectStore", {keyPath: "id"});
             // var index = store.createIndex("NameIndex", {});
-            console.log('onupgradeneeded done');
+            // console.log('onupgradeneeded done');
         };
 
         open.onsuccess = function() {
@@ -21,23 +22,6 @@ export function storeInDB (names, details, dataDate) {
             var db = open.result;
             var tx = db.transaction("MyObjectStore", "readwrite");
             var store = tx.objectStore("MyObjectStore");
-            // var index = store.index("NameIndex");
-
-            // // Add some data
-            // store.put({
-            //     id: 12345,
-            //     names: ['ram', 'not ram'],
-            //     details: [{
-            //         name: 'ram2',
-            //         mail: 'vaishnav.rd@gmail.com2',
-            //         citation: 'good bwoy2'
-            //         }, {
-            //         name: 'ram',
-            //         mail: 'vaishnav.rd@gmail.com',
-            //         citation: 'good bwoy'
-            //         }]
-            // });
-
 
             // Add some data
             store.put({
@@ -56,19 +40,21 @@ export function storeInDB (names, details, dataDate) {
             tx.oncomplete = function() {
                 db.close();
             };
-            console.log('onsuccess done');
+            // console.log('onsuccess done');
         }
 
         open.onerror = function () {
             reject(open.error);
         }
     });
+    */
 }
 
-
-export function fetchFromDB () {
+function fetchFromDB () {
+    return Promise.reject(new Error('test'));
+    /*
     return new Promise ((resolve, reject) => {
-        console.log('fetching data from db');
+        // console.log('fetching data from db');
         // This works on all devices/browsers, and uses IndexedDBShim as a final fallback 
         var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
 
@@ -97,4 +83,7 @@ export function fetchFromDB () {
             }
         }
     });
+    */
 }
+
+module.exports = {storeInDB, fetchFromDB};
