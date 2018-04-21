@@ -1,7 +1,7 @@
 {
   "name": "find-mozillian",
   "version": "0.0.1-alpha",
-  "description": "Module to find if a person is mozillian or not.",
+  "description": "Find if a person is Mozillian (based on Mozilla credits page)",
   "main": "src/index.js",
   "dependencies": {
     "node-fetch": "^2.1.2"
