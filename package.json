@@ -1,6 +1,6 @@
 {
   "name": "find-mozillian",
-  "version": "0.0.1-alpha3",
+  "version": "0.0.1-alpha4",
   "description": "Find if a person is Mozillian (based on Mozilla credits page)",
   "main": "src/index.js",
   "dependencies": {
